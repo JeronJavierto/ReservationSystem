@@ -61,24 +61,24 @@ input[type=reserve]:hover {
     <div class="a">Reservartion</div>
         <div class="b">Registration Form:
         <br>
-<form>
+<form action="../../php/reservation_form.php" method="POST">
     <label for="Org">Department/Organization:</label>
-    <input type="text" id="Org" name="org/dept" placeholder="Your department/organization...">
+    <input type="text" id="Org" name="DepOrg" placeholder="Your department/organization...">
     <br>
     <label for="Vent">Event</label>
-    <input type="text" id="Vent" name="Evnt" placeholder="Event.. ">
+    <input type="text" id="Vent" name="Event" placeholder="Event.. ">
     <br>
     <label for="Ven">Venue</label>
-    <input type="text" id="Ven" name="Plaze" placeholder="Venue.. ">
+    <input type="text" id="Ven" name="Venue" placeholder="Venue.. ">
     <br>
     <label for="Dat">Date</label>
-    <input type="text" id="Dat" name="dt" placeholder="Date.. ">
+    <input type="text" id="Dat" name="Date" placeholder="Date.. ">
     <br>
     <label for="Tim">Time Start</label>
-    <input type="text" id="Tim" name="tm" placeholder="Time start.. ">
+    <input type="time" id="Tim" name="TimeStart" placeholder="Time start.. ">
     <br>
     <label for="Tim">Time End</label>
-    <input type="text" id="Tim" name="tm" placeholder="Time end.. ">
+    <input type="time" id="Tim" name="TimeEnd" placeholder="Time end.. ">
     <br>
     <button class="button">Reserve</button>
     
