@@ -13,12 +13,14 @@
 
 	if ($password == $ConPassword) {
 		# code...
-		// header("location: ../pages/admin/home_admin.php");
-		echo(password_hash($password, PASSWORD_BCRYPT));
+		header("location: ../pages/admin/home_admin.html");
 		
 		// include("../")
 		if (mysqli_query($conn, $insertQuery)) {
-			# code...			
+			# code...
+			
+			
+			
 		}else{
 			echo (mysqli_connect_error());
 		}
