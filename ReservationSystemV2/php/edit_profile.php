@@ -1,15 +1,16 @@
 <?php
     include("DBConnector.php");
 
-    $password = filter($_POST['password'])
+   $user_check = $_SESSION['login_user'];
 
-       $sql = "UPDATE admin SET password = $password WHERE 'admin_id' = $'admin_id'" ;
-       mysql_select_db('itproject');
-       $retval = mysql_query( $sql, $conn );
+   $ses_sql = mysqli_query($conn, "SELECT password FROM admin WHERE email = '$user_check'");
 
-       if(! $retval ) {
-               die('Could not update data: ' . mysql_error());
-            }
-            echo "Updated data successfully\n";
-
+   $row =  mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+   
+   $login_session = $row['password'];
+   
+   if(!isset($_SESSION['login_user'])){
+      header("location: ../../index.html");
+      die();
+   }
 ?>
