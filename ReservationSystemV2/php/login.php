@@ -1,6 +1,6 @@
 <?php
    include("DBConnector.php");
-   //session_start();
+   session_start();
    $error = "Your Email or Password is invalid";
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
