@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 05:30 AM
+-- Generation Time: Apr 06, 2019 at 06:23 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `itproject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classroom`
+--
+
+CREATE TABLE `classroom` (
+  `classID` int(100) NOT NULL,
+  `roomName` varchar(50) NOT NULL,
+  `schoolYear` varchar(25) NOT NULL,
+  `semester` varchar(25) NOT NULL,
+  `days` varchar(11) NOT NULL,
+  `time` varchar(25) NOT NULL,
+  `subject` varchar(25) NOT NULL,
+  `hours` decimal(3,1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `classroom`
+--
+
+INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`) VALUES
+(1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5'),
+(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5');
 
 -- --------------------------------------------------------
 
@@ -150,6 +175,12 @@ INSERT INTO `services` (`serID`, `typeOfService`) VALUES
 --
 
 --
+-- Indexes for table `classroom`
+--
+ALTER TABLE `classroom`
+  ADD PRIMARY KEY (`classID`);
+
+--
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
@@ -182,6 +213,12 @@ ALTER TABLE `services`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `classroom`
+--
+ALTER TABLE `classroom`
+  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `client`
