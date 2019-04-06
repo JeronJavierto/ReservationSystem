@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 10:11 AM
+-- Generation Time: Apr 06, 2019 at 10:31 AM
 -- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `adminid` int(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `office` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminid`, `firstname`, `lastname`, `email`, `office`, `password`) VALUES
+(1, 'ac', 'manahan', 'ac.manahan8@yahoo.com', '2164165', '123manahan'),
+(2, 'ac', 'manahan', 'ac.manahan8@yahoo.com', '2164165', '123manahan');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `classroom`
 --
 
@@ -36,19 +59,17 @@ CREATE TABLE `classroom` (
   `days` varchar(11) NOT NULL,
   `time` varchar(25) NOT NULL,
   `subject` varchar(25) NOT NULL,
-  `hours` decimal(3,1) NOT NULL,
-  `weekly` int(11) DEFAULT NULL
+  `hours` decimal(3,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `classroom`
 --
 
-INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`, `weekly`) VALUES
-(1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5', NULL),
-(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5', NULL),
-(3, 'D422', '2015-2016', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0', NULL),
-(4, 'D422', '2015-2016', '1st', 'MTh', '1:00-2:30', 'IT 325', '1.5', NULL);
+INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`) VALUES
+(1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5'),
+(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5'),
+(3, 'D422', '2015-2016', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0');
 
 -- --------------------------------------------------------
 
@@ -156,6 +177,31 @@ INSERT INTO `facility` (`FacID`, `Level`, `room`, `roomType`, `description`, `ca
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `report`
+--
+
+CREATE TABLE `report` (
+  `reportID` int(255) NOT NULL,
+  `DateOfOccurence` date NOT NULL,
+  `TimeOfOccurence` time(6) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `IdNo` int(255) NOT NULL,
+  `Course` varchar(255) NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  `ExtentofDamage` varchar(255) NOT NULL,
+  `Action_taken` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`reportID`, `DateOfOccurence`, `TimeOfOccurence`, `Name`, `IdNo`, `Course`, `Description`, `ExtentofDamage`, `Action_taken`) VALUES
+(24, '2019-02-13', '02:22:00.000000', 'qwe', 0, 'qwe', 'qwe', 'qwe', 'qwe');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reservation`
 --
 
@@ -202,6 +248,12 @@ INSERT INTO `services` (`serID`, `typeOfService`) VALUES
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adminid`);
+
+--
 -- Indexes for table `classroom`
 --
 ALTER TABLE `classroom`
@@ -233,6 +285,12 @@ ALTER TABLE `facility`
   ADD PRIMARY KEY (`FacID`);
 
 --
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`reportID`);
+
+--
 -- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
@@ -251,10 +309,16 @@ ALTER TABLE `services`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `adminid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `classroom`
 --
 ALTER TABLE `classroom`
-  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -279,6 +343,12 @@ ALTER TABLE `event`
 --
 ALTER TABLE `facility`
   MODIFY `FacID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `reportID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `reservation`
