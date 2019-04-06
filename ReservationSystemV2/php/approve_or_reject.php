@@ -16,8 +16,8 @@
 		</tr>
 <?php
 	
-	$sql = "SELECT r.resID, c.Client_ID, r.Event FROM reservation r JOIN client c ON c.ResID=r.ResID";
-	// $sql = "SELECT * FROM client";	
+	$sql = "SELECT * FROM Reservation r LEFT JOIN client c ON r.Client_ID = c.ClientID";
+	// $sql = "SELECT * FROM client";
 
 	$result = $conn-> query($sql);
 
@@ -25,7 +25,7 @@
 		while ($row = $result-> fetch_assoc()){
 			echo "<tr>
 					<td>" . $row["resID"] . "</td>
-					<td>" . $row["Client_ID"] . "</td>
+					<td>" . $row["ClientID"] . "</td>
 					<td>" . $row["Event"] . "</td>								
 				  </tr>";
 		}
