@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 06:23 AM
+-- Generation Time: Apr 06, 2019 at 08:39 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -45,7 +45,8 @@ CREATE TABLE `classroom` (
 
 INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`) VALUES
 (1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5'),
-(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5');
+(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5'),
+(3, 'D422', '2015-2016', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0');
 
 -- --------------------------------------------------------
 
@@ -153,6 +154,30 @@ INSERT INTO `facility` (`FacID`, `Level`, `room`, `roomType`, `description`, `ca
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `resID` int(100) NOT NULL,
+  `DepOrg` varchar(100) NOT NULL,
+  `Event` varchar(100) NOT NULL,
+  `Venue` varchar(100) NOT NULL,
+  `Date` date NOT NULL,
+  `TimeStart` time NOT NULL,
+  `TimeEnd` time NOT NULL,
+  `Client_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`resID`, `DepOrg`, `Event`, `Venue`, `Date`, `TimeStart`, `TimeEnd`, `Client_ID`) VALUES
+(1, 'PESO', 'Party', 'Basketball Court', '2019-02-22', '14:22:00', '14:22:00', 58);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `services`
 --
 
@@ -184,7 +209,8 @@ ALTER TABLE `classroom`
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`ClientID`);
+  ADD PRIMARY KEY (`ClientID`),
+  ADD KEY `ClientID` (`ClientID`);
 
 --
 -- Indexes for table `equipment`
@@ -205,6 +231,14 @@ ALTER TABLE `facility`
   ADD PRIMARY KEY (`FacID`);
 
 --
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`resID`),
+  ADD KEY `resID` (`resID`),
+  ADD KEY `ClientID` (`Client_ID`);
+
+--
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
@@ -218,7 +252,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `classroom`
 --
 ALTER TABLE `classroom`
-  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -245,10 +279,26 @@ ALTER TABLE `facility`
   MODIFY `FacID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `resID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `serID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `Client_ID` FOREIGN KEY (`Client_ID`) REFERENCES `client` (`ClientID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
