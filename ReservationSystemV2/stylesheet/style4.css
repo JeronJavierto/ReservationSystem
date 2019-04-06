@@ -404,7 +404,6 @@ hr {
 
 /* The Modal of sign up (background) */
 .modal1 {
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 170px; /* Location of the box */
@@ -429,7 +428,7 @@ hr {
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
 }
 
 /* Add Animation */
@@ -462,13 +461,17 @@ hr {
 }
 
 .modal1-header {
-  padding: 30px 16px;
+  padding: 28px 10px;
   background-color: #1a245e;
   color: #fefefe;
   text-align: center;
+  margin-right: 00px;
+  margin-left: 0px;
 }
 
-.modal1-body {padding: 0 0;}
+.modal1-body {
+  padding: 0 0;
+}
 
 .signupmodal-header {
   padding: 30px 16px;
@@ -489,14 +492,14 @@ hr {
 /* Extra styles for the client button */
 .clientbtn {
   width: auto;
-  padding: 10px 18px;
+  padding: 10px 20px;
   background-color: #fefefe;
 }
 
 /* Extra styles for the admin button */
 .adminbtn {
   width: auto;
-  padding: 10px 18px;
+  padding: 10px 22px;
   background-color: #fefefe;
 }
 
