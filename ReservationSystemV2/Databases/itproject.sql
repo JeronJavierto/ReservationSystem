@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 08:39 AM
+-- Generation Time: Apr 06, 2019 at 10:11 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -36,17 +36,19 @@ CREATE TABLE `classroom` (
   `days` varchar(11) NOT NULL,
   `time` varchar(25) NOT NULL,
   `subject` varchar(25) NOT NULL,
-  `hours` decimal(3,1) NOT NULL
+  `hours` decimal(3,1) NOT NULL,
+  `weekly` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `classroom`
 --
 
-INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`) VALUES
-(1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5'),
-(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5'),
-(3, 'D422', '2015-2016', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0');
+INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`, `weekly`) VALUES
+(1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5', NULL),
+(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5', NULL),
+(3, 'D422', '2015-2016', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0', NULL),
+(4, 'D422', '2015-2016', '1st', 'MTh', '1:00-2:30', 'IT 325', '1.5', NULL);
 
 -- --------------------------------------------------------
 
@@ -252,7 +254,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `classroom`
 --
 ALTER TABLE `classroom`
-  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `client`
