@@ -452,14 +452,14 @@ hr {
   position: absolute;
   right: 15px;
   top: 15px;
-  color: #fefefe;
-  font-size: 25px;
+  color: red;
+  font-size: 15px;
   font-weight: bold;
+  width: auto;
 }
 
 .close1:hover, .close1:focus {
   color: #000;
-  text-decoration: none;
   cursor: pointer;
 }
 
@@ -505,7 +505,7 @@ hr {
   background-color: #fefefe;
   margin-top: 9px;
   margin-bottom: 9px;
-  font-size: 18px; /*font size for the client button */
+  font-size: 17px; /*font size for the client button */
 }
 
 /* Extra styles for the admin button */
@@ -515,7 +515,7 @@ hr {
   background-color: #fefefe;
   margin-top: 9px;
   margin-bottom: 9px;
-  font-size: 18px; /*font size for the admin button */
+  font-size: 17px; /*font size for the admin button */
 }
 
 /* Add padding to container elements */

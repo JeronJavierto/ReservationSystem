@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <ul class="menu">
+  <ul class="menu"> 
     <li class="home"><a href="index.html" class="home">HOME</a></li>
     <li class="events"><a href="php/event_page.php" class="events">EVENTS</a></li>
     <li class="faci"><a href="php/list_facilities.php" class="faci">FACILITIES</a></li>
@@ -40,16 +40,15 @@
 
 <div id="id02" class="signupmodal">
   
-  <form class="signupmodal-content animate" method="POST">
+  <form class="signupmodal-content animate" action="php/signup_modal.html" method="POST">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id02').style.display='none'" class="close1" title="Close Modal">&times;</span>
     </div>
 
   <!-- Modal content -->
   <div class="modal1-content">
     <div class="modal1-header">
+      <button type= "button" onclick="document.getElementById('id02').style.display='none'" class="close1">&times;</button>
       <p>Sign Up</p>
-      <span class="close1">&times;</span>
     </div>
     <div class="modal1-body">
     <div style = "position:absolute; left:35px; top:70px; class="container1" style="background-color:#f1f1f1">
