@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2019 at 02:59 AM
+-- Generation Time: Apr 06, 2019 at 05:30 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -45,7 +45,37 @@ CREATE TABLE `client` (
 
 INSERT INTO `client` (`ClientID`, `First_name`, `Last_name`, `email`, `Organization`, `position`, `password`, `Status`) VALUES
 (58, 'jeron', 'javierto', 'jeron@gmail.com', 'PESO', 'President', '123', ''),
-(59, 'jeron', 'javierto', 'jeron@gmail.com', 'PESO', 'President', 'qwe', '');
+(59, 'jeron', 'javierto', 'jeron@gmail.com', 'PESO', 'President', 'qwe', ''),
+(60, 'Jeron', 'Javierto', '2163947@slu.edu.ph', '', '', '123', ''),
+(61, '', '', '', '', '', '', ''),
+(62, '', '', '', '', '', '', ''),
+(63, '', '', '', '', '', '', ''),
+(64, '', '', '', '', '', '', ''),
+(65, '', '', '', '', '', '', ''),
+(66, 'ac', 'manahan', 'ac@email.com', '', '', '123', ''),
+(67, '', '', '', '', '', '', ''),
+(68, 'ac', 'manahan', 'ac@email.com', '', '', '123', ''),
+(69, 'ac', 'manahan', 'ac@email.com', '', '', 'Manahan123', ''),
+(70, 'ac', 'manahan', 'ac@email.com', '', '', 'Jeron123', ''),
+(71, 'ac', 'manahan', 'ac@email.com', '', 'President', 'Jeron123', ''),
+(72, 'ac', 'manahan', 'ac@email.com', '', 'Vice President', 'Jeron123', ''),
+(73, 'ac', 'manahan', 'ac@email.com', '', 'Vice President', 'jERON123', ''),
+(74, 'DESTONE', 'ALDANA', 'des@email.com', '', 'Vice President', 'Jeron123', ''),
+(75, 'DESTONE', 'ALDANA', 'des@email.com', '', 'President', 'Jeron123', ''),
+(76, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', 'Jeron123', ''),
+(77, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', 'Jeron123', ''),
+(78, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', 'Jeron123', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equipment`
+--
+
+CREATE TABLE `equipment` (
+  `EquipID` int(11) NOT NULL,
+  `equipName` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -98,26 +128,22 @@ INSERT INTO `facility` (`FacID`, `Level`, `room`, `roomType`, `description`, `ca
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservation`
+-- Table structure for table `services`
 --
 
-CREATE TABLE `reservation` (
-  `resID` int(255) NOT NULL,
-  `DepOrg` varchar(255) NOT NULL,
-  `Event` varchar(255) NOT NULL,
-  `Venue` varchar(255) NOT NULL,
-  `Date` date NOT NULL,
-  `TimeStart` time NOT NULL,
-  `TimeEnd` time NOT NULL
+CREATE TABLE `services` (
+  `serID` int(10) NOT NULL,
+  `typeOfService` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `reservation`
+-- Dumping data for table `services`
 --
 
-INSERT INTO `reservation` (`resID`, `DepOrg`, `Event`, `Venue`, `Date`, `TimeStart`, `TimeEnd`) VALUES
-(1, 'PESO', 'Party', 'Plaza', '2019-02-02', '14:22:00', '14:22:00'),
-(2, 'JPIA', 'Party', 'Plaza', '2019-02-02', '14:22:00', '14:22:00');
+INSERT INTO `services` (`serID`, `typeOfService`) VALUES
+(1, 'Janitor'),
+(2, 'Security Guard'),
+(3, 'Staff');
 
 --
 -- Indexes for dumped tables
@@ -128,6 +154,12 @@ INSERT INTO `reservation` (`resID`, `DepOrg`, `Event`, `Venue`, `Date`, `TimeSta
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`ClientID`);
+
+--
+-- Indexes for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD PRIMARY KEY (`EquipID`);
 
 --
 -- Indexes for table `event`
@@ -142,10 +174,10 @@ ALTER TABLE `facility`
   ADD PRIMARY KEY (`FacID`);
 
 --
--- Indexes for table `reservation`
+-- Indexes for table `services`
 --
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`resID`);
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`serID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -155,7 +187,13 @@ ALTER TABLE `reservation`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `ClientID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `ClientID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `EquipID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `event`
@@ -170,10 +208,10 @@ ALTER TABLE `facility`
   MODIFY `FacID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `reservation`
+-- AUTO_INCREMENT for table `services`
 --
-ALTER TABLE `reservation`
-  MODIFY `resID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `services`
+  MODIFY `serID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
