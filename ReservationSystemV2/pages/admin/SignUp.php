@@ -121,20 +121,20 @@ hr {
     <div class="container">
       <h1>Sign Up</h1>
       <hr>
-      <label for="email"><b>First Name</b></label>
+      <label for="fname"><b>First Name</b></label>
       <input type="text" placeholder="Enter first name" name="fname" required>
       
-      <label for="email"><b>Last Name</b></label>
+      <label for="lname"><b>Last Name</b></label>
       <input type="text" placeholder="Enter Last Name" name="lname" required>
       
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="email" placeholder="Enter Email" name="email" required>
       
-      <label for="email"><b>Office</b></label>
+      <label for="office"><b>Office</b></label>
       <input type="text" placeholder="Enter Office" name="office" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 
       <label for="psw-repeat"><b>Confirm Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
