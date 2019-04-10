@@ -1,82 +1,45 @@
 <?php
-	include("DBConnector.php");
+	include('DBConnector.php');
+
+	$Fname = mysqli_real_escape_string($conn, $_REQUEST['FName']);
+	$Lname = mysqli_real_escape_string($conn, $_REQUEST['LName']);
+	$email = mysqli_real_escape_string($conn, $_REQUEST['email']);
+	$org = mysqli_real_escape_string($conn, $_REQUEST['organization']);
+	$pos = mysqli_real_escape_string($conn, $_REQUEST['position']);
+	$password = mysqli_real_escape_string($conn, $_REQUEST['Password']);
+	$ConPassword = mysqli_real_escape_string($conn, $_REQUEST['ConPassword']);
+
+	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
+	
+
+	$email2= "SELECT * FROM client where email = '".$_POST['email']."'";
+	$message = "Email already taken";
+
+	if($result=mysqli_query($conn,$email2)){
+
+	if(mysqli_num_rows($result)>0){
+
+	echo "<script type='text/javascript'>alert('$message');</script>";
+
+	}elseif (mysqli_query($conn, $insertQuery)) {
+		header("location: ../pages/admin/home_admin.php");
+		# code...
+	}
+
+	}
+		
 ?>
 
-<html>
-<head>
-<title> Wow </title>
-</head>
-<body>
-	<div>
-		<form action="../php/signup.php" method="GET">
-			<!-- First Name -->
-			<div>
-				<label for="textinput">First Name</label>
-					<div>
-						<input type="text" name="FName" required=""><br><br>
-					</div>
-			</div>
-
-			<!-- Last Name -->
-			<div>
-				<label for="textinput">Last Name</label>
-					<div>
-						<input type="text" name="LName" required=""><br><br>
-					</div>
-			</div>
-
-			<!-- Email -->
-			<div>
-				<label for="textinput">Email Address</label>
-					<div>
-						<input type="email" name="email" required=""><br><br>
-					</div>
-			</div>
-
-			<!-- Organization -->
-			<div>
-				<label for="textinput">Organization</label>
-					<div>
-						<input type="text" name="organization">
-					</div>
-			</div>
-
-			<!-- Position -->
-			<div>
-				<label for="textinput">Position</label>
-					<div>
-						<input type="text" name="position"><br><br>			
-					</div>
-			</div>
-
-			<!-- Password -->
-			<div>
-				<label for="textinput">Password</label>
-					<div>
-						<input type="Password" name="Password"><br><br>
-					</div>
-			</div>
-
-			<!-- Confirm Password -->
-			<div>
-				<label for="textinput">Confirm Password</label>
-					<div>
-						<input type="Password" name="ConPassword"><br><br>
-					</div>
-			</div>			
-
-			<!-- Register Button -->
-			<div>
-				<input type="submit" name="" value="Register">
-			</div>
-
-			<!-- Sign-in Redirection -->
-			<div>
-				<a href="../php/signin.php">
-					<p>Already have an account? Sign In</p>
-				</a>
-			</div>
-		</form>
-	</div>
-</body>
-</html>
+<!-- }else if ($password == $ConPassword) {
+			header("location: ../pages/admin/home_admin.php");
+			// echo(password_hash($password, PASSWORD_BCRYPT));
+			
+			// include("../")
+			if (mysqli_query($conn, $insertQuery)) {
+				# code...			
+			}else{
+				echo (mysqli_connect_error());
+			}
+		}else{
+			echo("Password didn't matched");
+		} -->
