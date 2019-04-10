@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 10:31 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 10, 2019 at 04:00 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,14 +28,16 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `adminid` int(255) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `adminid` int(255) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `office` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`adminid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
@@ -51,25 +53,29 @@ INSERT INTO `admin` (`adminid`, `firstname`, `lastname`, `email`, `office`, `pas
 -- Table structure for table `classroom`
 --
 
-CREATE TABLE `classroom` (
-  `classID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `classroom`;
+CREATE TABLE IF NOT EXISTS `classroom` (
+  `classID` int(100) NOT NULL AUTO_INCREMENT,
   `roomName` varchar(50) NOT NULL,
   `schoolYear` varchar(25) NOT NULL,
   `semester` varchar(25) NOT NULL,
   `days` varchar(11) NOT NULL,
   `time` varchar(25) NOT NULL,
   `subject` varchar(25) NOT NULL,
-  `hours` decimal(3,1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `hours` decimal(3,1) NOT NULL,
+  PRIMARY KEY (`classID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `classroom`
 --
 
 INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`, `time`, `subject`, `hours`) VALUES
-(1, 'D422', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5'),
-(2, 'D421', '2015-2016', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5'),
-(3, 'D422', '2015-2016', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0');
+(1, 'D422', '2016-17', '1st', 'MWF', '8:00-9:30', 'IT 422', '1.5'),
+(2, 'D421', '2015-16', '1st', 'MWF', '8:00-9:30', 'IT 421', '1.5'),
+(3, 'D422', '2015-16', '1st', 'MWF', '10:00-11:00', 'ITF 001', '1.0'),
+(4, 'D422', '2015-16', '1st', 'MWF', '4:00-5:00', 'IT 417', '1.0'),
+(5, 'D422', '2015-16', '1st', 'MTH', '1:00-2:30', 'IT 214', '1.5');
 
 -- --------------------------------------------------------
 
@@ -77,16 +83,19 @@ INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`
 -- Table structure for table `client`
 --
 
-CREATE TABLE `client` (
-  `ClientID` int(50) NOT NULL,
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `ClientID` int(50) NOT NULL AUTO_INCREMENT,
   `First_name` varchar(25) NOT NULL,
   `Last_name` varchar(25) NOT NULL,
   `email` varchar(35) NOT NULL,
   `Organization` varchar(25) NOT NULL,
   `position` varchar(25) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `Status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Status` varchar(10) NOT NULL,
+  PRIMARY KEY (`ClientID`),
+  KEY `ClientID` (`ClientID`)
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `client`
@@ -121,9 +130,11 @@ INSERT INTO `client` (`ClientID`, `First_name`, `Last_name`, `email`, `Organizat
 -- Table structure for table `equipment`
 --
 
-CREATE TABLE `equipment` (
-  `EquipID` int(11) NOT NULL,
-  `equipName` varchar(100) NOT NULL
+DROP TABLE IF EXISTS `equipment`;
+CREATE TABLE IF NOT EXISTS `equipment` (
+  `EquipID` int(11) NOT NULL AUTO_INCREMENT,
+  `equipName` varchar(100) NOT NULL,
+  PRIMARY KEY (`EquipID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -132,15 +143,17 @@ CREATE TABLE `equipment` (
 -- Table structure for table `event`
 --
 
-CREATE TABLE `event` (
-  `eventID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `eventID` int(100) NOT NULL AUTO_INCREMENT,
   `Event_name` varchar(50) NOT NULL,
   `Facility` varchar(50) NOT NULL,
   `Date` date NOT NULL,
   `Time_start` time(4) NOT NULL,
   `Time_end` time(4) NOT NULL,
-  `Description` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Description` varchar(50) NOT NULL,
+  PRIMARY KEY (`eventID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event`
@@ -156,15 +169,17 @@ INSERT INTO `event` (`eventID`, `Event_name`, `Facility`, `Date`, `Time_start`, 
 -- Table structure for table `facility`
 --
 
-CREATE TABLE `facility` (
-  `FacID` int(255) NOT NULL,
+DROP TABLE IF EXISTS `facility`;
+CREATE TABLE IF NOT EXISTS `facility` (
+  `FacID` int(255) NOT NULL AUTO_INCREMENT,
   `Level` varchar(255) NOT NULL,
   `room` varchar(255) NOT NULL,
   `roomType` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `capacity` int(255) NOT NULL,
-  `Reservation` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Reservation` varchar(255) NOT NULL,
+  PRIMARY KEY (`FacID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `facility`
@@ -180,8 +195,9 @@ INSERT INTO `facility` (`FacID`, `Level`, `room`, `roomType`, `description`, `ca
 -- Table structure for table `report`
 --
 
-CREATE TABLE `report` (
-  `reportID` int(255) NOT NULL,
+DROP TABLE IF EXISTS `report`;
+CREATE TABLE IF NOT EXISTS `report` (
+  `reportID` int(255) NOT NULL AUTO_INCREMENT,
   `DateOfOccurence` date NOT NULL,
   `TimeOfOccurence` time(6) NOT NULL,
   `Name` varchar(255) NOT NULL,
@@ -189,8 +205,9 @@ CREATE TABLE `report` (
   `Course` varchar(255) NOT NULL,
   `Description` varchar(255) NOT NULL,
   `ExtentofDamage` varchar(255) NOT NULL,
-  `Action_taken` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Action_taken` varchar(255) NOT NULL,
+  PRIMARY KEY (`reportID`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `report`
@@ -205,16 +222,20 @@ INSERT INTO `report` (`reportID`, `DateOfOccurence`, `TimeOfOccurence`, `Name`, 
 -- Table structure for table `reservation`
 --
 
-CREATE TABLE `reservation` (
-  `resID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `resID` int(100) NOT NULL AUTO_INCREMENT,
   `DepOrg` varchar(100) NOT NULL,
   `Event` varchar(100) NOT NULL,
   `Venue` varchar(100) NOT NULL,
   `Date` date NOT NULL,
   `TimeStart` time NOT NULL,
   `TimeEnd` time NOT NULL,
-  `Client_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Client_ID` int(11) NOT NULL,
+  PRIMARY KEY (`resID`),
+  KEY `resID` (`resID`),
+  KEY `ClientID` (`Client_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservation`
@@ -229,10 +250,12 @@ INSERT INTO `reservation` (`resID`, `DepOrg`, `Event`, `Venue`, `Date`, `TimeSta
 -- Table structure for table `services`
 --
 
-CREATE TABLE `services` (
-  `serID` int(10) NOT NULL,
-  `typeOfService` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `services`;
+CREATE TABLE IF NOT EXISTS `services` (
+  `serID` int(10) NOT NULL AUTO_INCREMENT,
+  `typeOfService` varchar(100) NOT NULL,
+  PRIMARY KEY (`serID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `services`
@@ -242,125 +265,6 @@ INSERT INTO `services` (`serID`, `typeOfService`) VALUES
 (1, 'Janitor'),
 (2, 'Security Guard'),
 (3, 'Staff');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`adminid`);
-
---
--- Indexes for table `classroom`
---
-ALTER TABLE `classroom`
-  ADD PRIMARY KEY (`classID`);
-
---
--- Indexes for table `client`
---
-ALTER TABLE `client`
-  ADD PRIMARY KEY (`ClientID`),
-  ADD KEY `ClientID` (`ClientID`);
-
---
--- Indexes for table `equipment`
---
-ALTER TABLE `equipment`
-  ADD PRIMARY KEY (`EquipID`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`eventID`);
-
---
--- Indexes for table `facility`
---
-ALTER TABLE `facility`
-  ADD PRIMARY KEY (`FacID`);
-
---
--- Indexes for table `report`
---
-ALTER TABLE `report`
-  ADD PRIMARY KEY (`reportID`);
-
---
--- Indexes for table `reservation`
---
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`resID`),
-  ADD KEY `resID` (`resID`),
-  ADD KEY `ClientID` (`Client_ID`);
-
---
--- Indexes for table `services`
---
-ALTER TABLE `services`
-  ADD PRIMARY KEY (`serID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `adminid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `classroom`
---
-ALTER TABLE `classroom`
-  MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `client`
---
-ALTER TABLE `client`
-  MODIFY `ClientID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
---
--- AUTO_INCREMENT for table `equipment`
---
-ALTER TABLE `equipment`
-  MODIFY `EquipID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `eventID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `facility`
---
-ALTER TABLE `facility`
-  MODIFY `FacID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `report`
---
-ALTER TABLE `report`
-  MODIFY `reportID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `reservation`
---
-ALTER TABLE `reservation`
-  MODIFY `resID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `services`
---
-ALTER TABLE `services`
-  MODIFY `serID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
