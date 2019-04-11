@@ -17,8 +17,12 @@
   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="loginB">LOGIN</button>
   <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" class="signupB">SIGN UP</button>
 
-<div id="id01" class="loginmodal">
-  
+
+<!-- CALENDAR -->
+<?php include 'calendar/homepage_calendar.php'; ?>
+
+<!-- LOG IN MODAL -->
+<div id="id01" class="loginmodal">  
   <form class="modal-content animate" action="php/login.php" method="POST">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
