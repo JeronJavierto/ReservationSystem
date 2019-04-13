@@ -10,9 +10,11 @@
 <body>
   <ul class="menu"> 
     <li class="home_index"><a href="index.html" class="home">HOME</a></li>
-    <li class="events_index"><a href="php/event_page.php" class="events">EVENTS</a></li>
-    <li class="faci_index"><a href="php/list_facilities.php" class="faci">FACILITIES</a></li>
+    <li class="events_index"><a href="php/event_page_home.php" class="events">EVENTS</a></li>
+    <li class="faci_index"><a href="php/list_facilities_home.php" class="faci">FACILITIES</a></li>
   </ul>
+
+  <?php  include('calendar/homepage_calendar.php'); ?>
 
   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="loginB">LOGIN</button>
   <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" class="signupB">SIGN UP</button>
@@ -112,10 +114,6 @@
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="ConPassword" required>
       
-<!--      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>      
--->
       <div class="clearfix_signup">
         <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn_signup">Cancel</button>
         <button type="submit" class="signupbtn">Sign Up</button>
@@ -123,29 +121,7 @@
       	</div>
       	</form>
       </div>
-
-
-
-
-<!--<div id="id02" class="signupmodal">
-  	
-  <form class="signupmodal-content animate" action="sample.html" method="POST">
-    <div class="imgcontainer">
-    	<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-    </div>
-
-  <!-- Modal content 
-  <div class="logincontainer">
-    <div class="modal1-header">
-      <p>Sign Up</p>
-    </div>
-    <div class="modal1-body">
-   <!-- <div style = "position:absolute; left:35px; top:70px; class="container1" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="clientbtn">CLIENT</button>    
-    </div>
-    <div style = "position:absolute; right:35px; top:70px; class="container1" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="adminbtn">ADMIN</button>  
-    </div>
--->
+    
+    
 </body>
 </html>
