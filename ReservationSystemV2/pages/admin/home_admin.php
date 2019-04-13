@@ -1,4 +1,4 @@
-<?php include('../../php/session.php'); ?>
+<?php include('session_admin.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +13,16 @@
 	<h3><a href="../../php/logout.php" class="signup">Log Out</a></h3>
 </head>
 <body>
+
 	<ul class="menu">
 		<li class="home"><a href="home_admin.php" class="home">HOME</a></li>
-		<li class="events"><a href="../../php/event_page.php" class="events">EVENTS</a></li>
-		<li class="faci"><a href="../../php/list_facilities.php" class="faci">FACILITIES</a></li>
+		<li class="events"><a href="../../php/event_page_admin.php" class="events">EVENTS</a></li>
+		<li class="faci"><a href="../../php/list_facilities_admin.php" class="faci">FACILITIES</a></li>
 		<li class="reser"><a href="list_of_reservations.php" class="reser">RESERVATION</a></li>
 		<li class="req"><a href="list_of_requests.php" class="req">REQUEST</a></li>
 		<li class="rep"><a href="report.php" class="rep">REPORTS</a></li>
 	</ul>
+
+	<?php include("homepage_admin_calendar.php"); ?>
 </body>
 </html>
