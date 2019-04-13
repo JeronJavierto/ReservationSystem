@@ -15,9 +15,10 @@
 <body>    
   
 	<ul class="menu">
-	  <li class="home"><a href="../pages/admin/home_admin.php" class="home">HOME</a></li>
-	  <li class="events"><a href="event_page_admin.php" class="events">EVENTS</a></li>
-	  <li class="faci"><a href="list_facilities_admin.php" class="faci">FACILITIES</a></li>
+	  <li class="home"><a href="../pages/office/home_office.php" class="home">HOME</a></li>
+	  <li class="events"><a href="event_page_office.php" class="events">EVENTS</a></li>
+	  <li class="faci"><a href="list_facilities_office.php" class="faci">FACILITIES</a></li>    
+	  <li class="req"><a href="list_of_requests_office.php" class="req">REQUEST</a></li>    
 	</ul>
 
 	<table id="customers">
@@ -26,7 +27,7 @@
 			<th>Room</th>
 			<th>Room Type</th>
 			<th>Description</th>
-			<th>Capacity</th>			
+			<th>Capacity</th>	
 		</tr>
 <?php
 	$sql = "SELECT * FROM facility";

@@ -10,8 +10,8 @@
 <body>
   <ul class="menu"> 
     <li class="home_index"><a href="index.html" class="home">HOME</a></li>
-    <li class="events_index"><a href="php/event_page.php" class="events">EVENTS</a></li>
-    <li class="faci_index"><a href="php/list_facilities.php" class="faci">FACILITIES</a></li>
+    <li class="events_index"><a href="php/event_page_home.php" class="events">EVENTS</a></li>
+    <li class="faci_index"><a href="php/list_facilities_home.php" class="faci">FACILITIES</a></li>
   </ul>
 
   <?php include('calendar/homepage_calendar.php'); ?>
@@ -26,7 +26,7 @@
     </div>
     <div class="logincontainer">
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Username" name="email" required="">
+      <input type="text" placeholder="Enter Email" name="email" required="">
 
       <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required="">   
@@ -78,7 +78,7 @@
       <input type="text" placeholder="Position" name="position" required="">
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="Password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      <input type="password" placeholder="Enter Password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="ConPassword" required>     
@@ -94,7 +94,7 @@
 <!-- admin sign up -->
       <div id="id04" class="modal_signup">
       		<span onclick="document.getElementById('id04').style.display='none'" class="close_s" title="Close">&times;</span>
-      	<form class="modal-content-signup" action="php/signup.php" method="POST">
+      	<form class="modal-content-signup" action="php/signup_admin.php" method="POST">
       		<div class="container_signup">
       		<p>Please fill in this form to create an account.</p>
       		<hr>

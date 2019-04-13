@@ -30,7 +30,6 @@
 			<th>Room Type</th>
 			<th>Description</th>
 			<th>Capacity</th>
-			<th>Reservation</th>
 		</tr>
 <?php
 	$sql = "SELECT * FROM facility";

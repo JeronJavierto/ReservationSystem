@@ -12,7 +12,7 @@
 	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
 	
 
-	$email2= "SELECT * FROM client where email = '".$_POST['email']."'";
+	$email2= "SELECT * FROM client where Email = '".$_POST['email']."'";
 	$message = "Email already taken";
 	$failPass = "Passwords didn't match";
 
@@ -41,17 +41,3 @@
 	}
 		
 ?>
-
-<!-- }else if ($password == $ConPassword) {
-			header("location: ../pages/admin/home_admin.php");
-			// echo(password_hash($password, PASSWORD_BCRYPT));
-			
-			// include("../")
-			if (mysqli_query($conn, $insertQuery)) {
-				# code...			
-			}else{
-				echo (mysqli_connect_error());
-			}
-		}else{
-			echo("Password didn't matched");
-		} -->
