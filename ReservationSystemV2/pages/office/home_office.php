@@ -1,4 +1,4 @@
-<?php include('session_client.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<ul class="menu">
-		<li class="home"><a href="home_client.php" class="home">HOME</a></li>
+		<li class="home"><a href="home_office.php" class="home">HOME</a></li>
 		<li class="events"><a href="../../php/event_page_client.php" class="events">EVENTS</a></li>
 		<li class="faci"><a href="../../php/list_facilities_client.php" class="faci">FACILITIES</a></li>
 	</ul>
