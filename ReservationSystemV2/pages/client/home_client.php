@@ -1,4 +1,4 @@
-<?php include('session_client.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>

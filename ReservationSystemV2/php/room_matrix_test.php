@@ -68,7 +68,7 @@
 
 <?php
 
-	$sql = "SELECT roomName, time, days, SUM(hours*if(days='MWF', 3 , if(days='MTh', 2 ,if(days='TTH', 2 ,if(days='TF', 2 , 0 ))))) weekly from itproject.classroom where roomName ='D422'" ;
+	$sql = "SELECT roomName, time, days, SUM(hours*if(days='MWF', 3 , if(days='MTh', 2 ,if(days='TTH', 2 ,if(days='TF', 2 , 0 ))))) weekly from itproject.classroom where roomName ='D422' AND schoolYear= '".$year ."' "  ;
 
 	$result = $conn-> query($sql);
 
@@ -77,7 +77,8 @@
 
 			echo "Hours Utilized(Weekly): " . $row["weekly"] . " hours <br/>";
 			echo "Total hours per week: 48 hours <br/>";
-			echo "Utilization Rate: " . ($row["weekly"])*48*0.01. "%";
+			echo "Utilization Rate: " . ($row["weekly"])*48*0.01. "% <br/>";
+			echo $year;
 		}
 		echo "</table>";
 	}else{

@@ -14,18 +14,30 @@
 
 	$email2= "SELECT * FROM client where email = '".$_POST['email']."'";
 	$message = "Email already taken";
+	$failPass = "Passwords didn't match";
+
 
 	if($result=mysqli_query($conn,$email2)){
 
-	if(mysqli_num_rows($result)>0){
+		if(mysqli_num_rows($result)>0){
+			// header("location: ../index.html");
+			echo "<script type='text/javascript'>alert('$message');
+				window.location.href='../index.html';
+			</script>";
 
-	echo "<script type='text/javascript'>alert('$message');</script>";
 
-	}elseif (mysqli_query($conn, $insertQuery)) {
-		header("location: ../pages/admin/home_admin.php");
-		# code...
-	}
 
+		}elseif ($password != $ConPassword){			
+			echo "<script type='text/javascript'>window.alert('Passwords do not match');
+				window.location.href='../index.html';
+			</script>";		
+				
+		}
+
+		elseif (mysqli_query($conn, $insertQuery)) {
+			echo "<script type='text/javascript'>alert('User successfully Created');
+			window.location.href='../pages/client/home_client.php';</script>";
+		}
 	}
 		
 ?>
