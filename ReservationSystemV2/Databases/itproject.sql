@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2019 at 03:52 PM
+-- Generation Time: Apr 15, 2019 at 08:36 AM
 -- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `userID` int(11) NOT NULL,
+  `User_type` varchar(100) NOT NULL,
+  `First_name` varchar(100) NOT NULL,
+  `Last_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `Office` varchar(100) NOT NULL,
+  `Organization` varchar(100) NOT NULL,
+  `Position` varchar(100) NOT NULL,
+  `Password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`userID`, `User_type`, `First_name`, `Last_name`, `email`, `Office`, `Organization`, `Position`, `Password`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin@email.com', 'admin', '', '', 'Admin123'),
+(3, 'client', 'Jeron', 'Javierto', 'jeron@email.com', '', 'ICON', 'President', 'Jeron123'),
+(5, '', 'jek', 'rosal', 'jek@email.com', '', 'PESO', 'Vice President', 'Rosal123'),
+(6, '', 'jekAdmin', 'admin', 'jekadmin@email', 'Admin', '', '', 'Rosal123');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `admin`
 --
 
@@ -32,10 +60,17 @@ CREATE TABLE `admin` (
   `adminID` int(11) NOT NULL,
   `FirstName` varchar(100) NOT NULL,
   `LastName` varchar(100) NOT NULL,
-  `Email` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `Office` varchar(100) NOT NULL,
-  `Password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminID`, `FirstName`, `LastName`, `email`, `Office`, `password`) VALUES
+(1, 'admin', 'admin', 'admin@email.com', 'Admin', 'Admin123');
 
 -- --------------------------------------------------------
 
@@ -88,37 +123,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`ClientID`, `First_name`, `Last_name`, `email`, `Organization`, `position`, `password`, `Status`) VALUES
-(84, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'Vice President', '123', ''),
-(85, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(86, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(87, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(88, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'Vice President', '123', ''),
-(89, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(90, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(91, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(92, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'Vice President', '123', ''),
-(93, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(94, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(95, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(96, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(97, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(98, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(99, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(100, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(101, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(102, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(103, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(104, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(105, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(106, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', ''),
-(107, 'Jeron', 'Javierto', 'jeron@gmail.com', 'SLU', 'President', '123', ''),
-(108, 'Jeron', 'Javierto', '123@email.com', 'SLU', 'Vice President', 'Jeron123', ''),
-(109, 'Jeron', 'Javierto', '321@slu.edu.ph', 'SLU', 'President', '123', ''),
-(110, 'Jeron', 'Javierto', 'jek@slu.edu.ph', 'SLU', 'President', '123', ''),
-(111, 'Jeron', 'Javierto', 'asdw@slu.edu.ph', 'SLU', 'President', '123', ''),
-(112, 'Jeron', 'Javierto', '12312312@slu.edu.ph', 'SLU', 'President', 'jwerfu', ''),
-(113, 'Jeron', 'Javierto', '64859302@slu.edu.ph', 'SLU', 'President', 'popopop', ''),
-(114, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', '123', '');
+(115, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', 'Jeron123', '');
 
 -- --------------------------------------------------------
 
@@ -202,13 +207,13 @@ CREATE TABLE `reservation` (
 INSERT INTO `reservation` (`resID`, `Client_ID`, `title`, `Venue`, `start_event`, `end_event`, `status`) VALUES
 (4, 0, 'mass', '', '2019-04-11 03:30:00', '2019-04-11 18:00:00', ''),
 (5, 0, 'party', '', '2019-04-12 00:00:00', '2019-04-13 00:00:00', ''),
+(7, 0, 'qwe', '', '2019-04-13 00:00:00', '2019-04-14 00:00:00', ''),
 (9, 0, 'mass', '', '2019-04-18 00:00:00', '2019-04-19 00:00:00', ''),
 (10, 0, 'basketball', '', '2019-04-18 00:00:00', '2019-04-19 00:00:00', ''),
 (11, 0, 'party', '', '2019-04-18 00:00:00', '2019-04-19 00:00:00', ''),
 (12, 0, 'mass', '', '2019-04-04 00:00:00', '2019-04-05 00:00:00', ''),
-(13, 0, 'jhfshfkjs', '', '2019-03-31 00:00:00', '2019-04-01 00:00:00', ''),
-(14, 0, 'xkjcnjsd', '', '2019-04-01 00:00:00', '2019-04-02 00:00:00', ''),
-(15, 0, 'dfdsaf', '', '2019-04-09 00:00:00', '2019-04-10 00:00:00', '');
+(13, 0, 'mass', '', '2019-04-05 00:00:00', '2019-04-06 00:00:00', ''),
+(14, 0, 'party', '', '2019-04-06 00:00:00', '2019-04-07 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -233,6 +238,12 @@ INSERT INTO `services` (`serID`, `typeOfService`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`userID`);
 
 --
 -- Indexes for table `admin`
@@ -288,10 +299,16 @@ ALTER TABLE `services`
 --
 
 --
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `classroom`
@@ -303,7 +320,7 @@ ALTER TABLE `classroom`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `ClientID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `ClientID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -327,7 +344,7 @@ ALTER TABLE `facility`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `resID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `resID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `services`
