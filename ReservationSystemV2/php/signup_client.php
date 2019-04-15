@@ -9,6 +9,8 @@
 	$password = mysqli_real_escape_string($conn, $_REQUEST['Password']);
 	$ConPassword = mysqli_real_escape_string($conn, $_REQUEST['ConPassword']);
 
+	$ConPassword = $password = md5($password);
+
 	$insertQuery = "INSERT INTO accounts (First_name, Last_name, email, Organization, Position, Password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
 	
 
