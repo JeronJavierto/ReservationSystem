@@ -8,9 +8,9 @@ $office = mysqli_real_escape_string($conn, $_REQUEST['admin_Office']);
 $password = mysqli_real_escape_string($conn, $_REQUEST['admin_Password']);
 $ConPassword = mysqli_real_escape_string($conn, $_REQUEST['admin_ConPassword']);
 
-$insertQuery = "INSERT INTO admin (firstname, lastname, email, office, password) VALUES ('$fname', '$lname', '$email', '$office', '$password')";
+$insertQuery = "INSERT INTO accounts (First_name, Last_name, email, Office, Password) VALUES ('$fname', '$lname', '$email', '$office', '$password')";
 
-$email2= "SELECT * FROM admin where Email = '".$_POST['admin_email']."'";
+$email2= "SELECT * FROM accounts where email = '".$_POST['admin_email']."'";
 	$message = "Email already taken";
 	$failPass = "Passwords didn't match";
 
