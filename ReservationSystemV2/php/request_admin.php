@@ -26,7 +26,7 @@
 			echo "<tr>
 					<td>" . $row["resID"] . "</td>
 					<td>" . $row["ClientID"] . "</td>
-					<td>" . $row["title"] . "</td>								
+					<td>" . $row["Event"] . "</td>								
 				  </tr>";
 		}
 		echo "</table>";
