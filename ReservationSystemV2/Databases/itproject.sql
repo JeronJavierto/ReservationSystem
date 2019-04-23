@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 03:57 PM
+-- Generation Time: Apr 23, 2019 at 02:49 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -48,29 +48,8 @@ INSERT INTO `accounts` (`userID`, `User_type`, `First_name`, `Last_name`, `email
 (24, 'admin', 'admin', 'admin', 'admin@email.com', 'admin', '', '', 'e64b78fc3bc91bcbc7dc232ba8ec59e0'),
 (25, 'client', 'user', 'user', 'user@email.com', '', 'ICON', 'President', '5a30c9609b52fe348fb6925896e061de'),
 (26, 'client', 'user2', 'user2', 'user2@email.com', '', 'JPIA', 'Vice', '777dd9eca1d6506e618db45f6984b601'),
-(27, 'client', 'user3', 'user3', 'user3@email.com', '', 'PESO', 'President', 'dd49464d76a41223cf717122a9de610b');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `adminID` int(11) NOT NULL,
-  `FirstName` varchar(100) NOT NULL,
-  `LastName` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `Office` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`adminID`, `FirstName`, `LastName`, `email`, `Office`, `password`) VALUES
-(1, 'admin', 'admin', 'admin@email.com', 'Admin', 'Admin123');
+(27, 'client', 'user3', 'user3', 'user3@email.com', '', 'PESO', 'President', 'dd49464d76a41223cf717122a9de610b'),
+(28, 'client', 'user4', 'user4', 'user4@email.com', '', 'PESO', 'President', 'e3c051e942952896da19a682ccb565b8');
 
 -- --------------------------------------------------------
 
@@ -104,30 +83,6 @@ INSERT INTO `classroom` (`classID`, `roomName`, `schoolYear`, `semester`, `days`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
---
-
-CREATE TABLE `client` (
-  `ClientID` int(50) NOT NULL,
-  `First_name` varchar(25) NOT NULL,
-  `Last_name` varchar(25) NOT NULL,
-  `email` varchar(35) NOT NULL,
-  `Organization` varchar(25) NOT NULL,
-  `position` varchar(25) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `Status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`ClientID`, `First_name`, `Last_name`, `email`, `Organization`, `position`, `password`, `Status`) VALUES
-(115, 'Jeron', 'Javierto', '2163947@slu.edu.ph', 'SLU', 'President', 'Jeron123', '');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `equipment`
 --
 
@@ -135,30 +90,6 @@ CREATE TABLE `equipment` (
   `EquipID` int(11) NOT NULL,
   `equipName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `event`
---
-
-CREATE TABLE `event` (
-  `eventID` int(100) NOT NULL,
-  `Event_name` varchar(50) NOT NULL,
-  `Facility` varchar(50) NOT NULL,
-  `Date` date NOT NULL,
-  `Time_start` time(4) NOT NULL,
-  `Time_end` time(4) NOT NULL,
-  `Description` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `event`
---
-
-INSERT INTO `event` (`eventID`, `Event_name`, `Facility`, `Date`, `Time_start`, `Time_end`, `Description`) VALUES
-(1, 'Ash Wednesday', 'Plaza', '2019-03-06', '10:00:00.0000', '11:00:00.0000', 'Mass'),
-(2, 'Spirit Overload', 'Plaza', '2019-03-07', '05:00:00.0000', '06:00:00.0000', 'Party');
 
 -- --------------------------------------------------------
 
@@ -197,7 +128,7 @@ CREATE TABLE `reservation` (
   `Venue` varchar(100) NOT NULL,
   `start_event` datetime NOT NULL,
   `end_event` datetime NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -205,8 +136,11 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`resID`, `user_ID`, `title`, `Venue`, `start_event`, `end_event`, `status`) VALUES
-(19, 25, 'PARTY PARTY', '', '2019-04-24 00:00:00', '2019-04-25 00:00:00', ''),
-(21, 26, 'Ballers', '', '2019-04-19 00:00:00', '2019-04-20 00:00:00', '');
+(21, 26, 'Ballers', '', '2019-04-19 00:00:00', '2019-04-20 00:00:00', 'Approved'),
+(24, 0, 'Mass', '', '2019-04-19 00:00:00', '2019-04-20 00:00:00', 'Approved'),
+(26, 25, 'No class', '', '2019-04-19 00:00:00', '2019-04-21 00:00:00', 'Approved'),
+(32, 25, 'Party', '', '2019-04-23 12:00:00', '2019-04-23 14:00:00', 'Approved'),
+(34, 25, 'party party', '', '2019-04-24 12:30:00', '2019-04-24 14:30:00', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -239,35 +173,16 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`userID`);
 
 --
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`adminID`);
-
---
 -- Indexes for table `classroom`
 --
 ALTER TABLE `classroom`
   ADD PRIMARY KEY (`classID`);
 
 --
--- Indexes for table `client`
---
-ALTER TABLE `client`
-  ADD PRIMARY KEY (`ClientID`),
-  ADD KEY `ClientID` (`ClientID`);
-
---
 -- Indexes for table `equipment`
 --
 ALTER TABLE `equipment`
   ADD PRIMARY KEY (`EquipID`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`eventID`);
 
 --
 -- Indexes for table `facility`
@@ -295,13 +210,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `classroom`
@@ -310,22 +219,10 @@ ALTER TABLE `classroom`
   MODIFY `classID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `client`
---
-ALTER TABLE `client`
-  MODIFY `ClientID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
-
---
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
   MODIFY `EquipID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `eventID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `facility`
@@ -337,7 +234,7 @@ ALTER TABLE `facility`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `resID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `resID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `services`
