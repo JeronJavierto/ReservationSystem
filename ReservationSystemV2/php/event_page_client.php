@@ -14,48 +14,41 @@
 <body>    
   
   <ul class="menu">
-    <li class="home"><a href="../pages/admin/home_admin.php" class="home">HOME</a></li>
-    <li class="events"><a href="event_page_admin.php" class="events">EVENTS</a></li>
-    <li class="faci"><a href="list_facilities_admin.php" class="faci">FACILITIES</a></li>
-    <li class="reser"><a href="../pages/admin/list_of_reservations.php" class="reser">RESERVATION</a></li>
-    <li class="req"><a href="../pages/admin/list_of_requests.php" class="req">REQUEST</a></li>
-    <li class="rep"><a href="../pages/admin/report.php" class="rep">REPORTS</a></li>
+    <li class="home"><a href="../pages/client/home_client.php" class="home">HOME</a></li>
+    <li class="events"><a href="event_page_client.php" class="events">EVENTS</a></li>
+    <li class="faci"><a href="list_facilities_client.php" class="faci">FACILITIES</a></li>
   </ul>
 
   <table id="customers">
-    <tr>
-      <th>Event Name</th>
-      <th>Faciltiy</th>
-      <th>Date</th>
-      <th>Time Start</th>
-      <th>Time End</th>
-      <th>Description</th>
-    </tr>
+      <tr>
+        <th>Event Name</th>
+        <th>Venue</th>
+        <th>Time Start</th>
+        <th>Time End</th>            
+      </tr>
 
-<?php
+  <?php
 
-  $sql = "SELECT * FROM event";
-  $result = $conn-> query($sql);
+    $sql = "SELECT * FROM reservation WHERE status LIKE 'Approved'";
+    $result = $conn-> query($sql);
 
-  if ($result-> num_rows > 0){
-    while ($row = $result-> fetch_assoc()){
-      echo "<tr>
-          <td>" . $row["Event_name"] . "</td>
-          <td>" . $row["Facility"] . "</td>
-          <td>" . $row["Date"] . "</td>
-          <td>"  . $row["Time_start"] . "</td>
-          <td>" . $row["Time_end"] . "</td>
-          <td>"  . $row["Description"] . "</td>
-          </tr>";
+    if ($result-> num_rows > 0){
+      while ($row = $result-> fetch_assoc()){
+        echo "<tr>
+            <td>" . $row["title"] . "</td>
+            <td>" . $row["Venue"] . "</td>          
+            <td>"  . $row["start_event"] . "</td>
+            <td>" . $row["end_event"] . "</td>          
+            </tr>";
+      }
+      echo "</table>";
+    }else{
+      echo "0 result";
     }
-    echo "</table>";
-  }else{
-    echo "0 result";
-  }
 
-  $conn-> close();
-?>
+    $conn-> close();
+  ?>
 
-  </table>
-</body>
-</html>
+    </table>
+  </body>
+  </html>

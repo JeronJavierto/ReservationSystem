@@ -7,8 +7,8 @@ $connect = new PDO('mysql:host=localhost;dbname=itproject', 'root', '');
 if(isset($_POST["title"]))
 {
  $query = "
- INSERT INTO events 
- (Event_name, Time_start, Time_end) 
+ INSERT INTO reservation 
+ (title, start_event, end_event) 
  VALUES (:title, :start_event, :end_event)
  ";
  $statement = $connect->prepare($query);

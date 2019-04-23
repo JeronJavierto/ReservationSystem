@@ -6,7 +6,7 @@ $connect = new PDO('mysql:host=localhost;dbname=itproject', 'root', '');
 
 $data = array();
 
-$query = "SELECT * FROM events ORDER BY eventID";
+$query = "SELECT * FROM reservation ORDER BY resID";
 
 $statement = $connect->prepare($query);
 
@@ -17,10 +17,10 @@ $result = $statement->fetchAll();
 foreach($result as $row)
 {
  $data[] = array(
-  'id'   => $row["eventID"],
-  'title'   => $row["Event_name"],
-  'start'   => $row["Time_start"],
-  'end'   => $row["Time_end"]
+  'id'   => $row["resID"],
+  'title'   => $row["title"],
+  'start'   => $row["start_event"],
+  'end'   => $row["end_event"]
  );
 }
 

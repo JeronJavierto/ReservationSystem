@@ -9,10 +9,13 @@
 	$password = mysqli_real_escape_string($conn, $_REQUEST['Password']);
 	$ConPassword = mysqli_real_escape_string($conn, $_REQUEST['ConPassword']);
 
-	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
+	$password = md5($password);
+	$ConPassword = md5($ConPassword);
+
+	$insertQuery = "INSERT INTO accounts (User_type, First_name, Last_name, email, Organization, Position, Password) VALUES ('client', '$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
 	
 
-	$email2= "SELECT * FROM client where Email = '".$_POST['email']."'";
+	$email2= "SELECT * FROM accounts where email = '".$_POST['email']."'";
 	$message = "Email already taken";
 	$failPass = "Passwords didn't match";
 

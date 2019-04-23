@@ -7,8 +7,7 @@
       // email and password sent from form 
       
       $myemail = mysqli_real_escape_string($conn,$_POST['email']);
-      $mypassword = mysqli_real_escape_string($conn,$_POST['password']);
-      $myID = '';
+      $mypassword = mysqli_real_escape_string($conn,$_POST['password']);      
       $mypassword = md5($mypassword);
       
       $sql = "SELECT * FROM accounts WHERE email = '$myemail' and Password = '$mypassword'";

@@ -7,7 +7,7 @@ $connect = new PDO('mysql:host=localhost;dbname=testing', 'root', '');
 if(isset($_POST["id"]))
 {
  $query = "
- UPDATE events 
+ UPDATE reservation 
  SET title=:title, start_event=:start_event, end_event=:end_event 
  WHERE id=:id
  ";
