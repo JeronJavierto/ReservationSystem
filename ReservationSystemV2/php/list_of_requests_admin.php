@@ -1,12 +1,10 @@
 <?php
 	include('DBConnector.php');
-	include('session.php');
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>List of Facilities</title>
+	<title>Request</title>
 	<link rel="stylesheet" href="../stylesheet/style.css">
 	<h1>FACILITY RESERVATION SYSTEM</h1>
 	<h3><a href="edit_profile.php" class="signup">Edit Profile</a></h3><br>
@@ -25,33 +23,45 @@
 
 	<table id="customers">
 		<tr>
-			<th>Level</th>
-			<th>Room</th>
-			<th>Room Type</th>
-			<th>Description</th>
-			<th>Capacity</th>
+			<th>Venue</th>
+			<th>Activity</th>
+			<th>Time Start</th>
+			<th>Time End</th>
+			<th>Decision</th>			
 		</tr>
 <?php
-	$sql = "SELECT * FROM facility";
+	// if($_SERVER["REQUEST_METHOD"] == "POST") {
+	$sql = "SELECT * FROM reservation r LEFT JOIN accounts a ON r.user_ID = a.userID WHERE status = 'Pending'";
+	// $sql = "SELECT * FROM client";
+
 	$result = $conn-> query($sql);
 
 	if ($result-> num_rows > 0){
 		while ($row = $result-> fetch_assoc()){
-			echo "<tr>
-					<td>" . $row["Level"] . "</td>
-					<td>" . $row["room"] . "</td>
-					<td>" . $row["roomType"] . "</td>
-					<td>"  . $row["description"] . "</td>
-					<td>" . $row["capacity"] . "</td>
+			$_SESSION['IDres'] = $row["resID"];
+			echo "<tr>					
+					<td>" . $row["Venue"] . "</td>
+					<td>" . $row["title"] . "</td>
+					<td>" . $row["start_event"] . "</td>
+					<td>" . $row["end_event"] . "</td>
+					<td>"
+						?>
+						<form action="approve_or_decline.php" method="POST">
+							<input type="submit" name="Approve" value="Approve">
+							<input type="submit" name="Decline" value="Decline">
+						</form>
+						<?php
+					"</td>								
 				  </tr>";
 		}
 		echo "</table>";
 	}else{
-		echo "0 result";
+		echo "No reservation";
 	}
 
 	$conn-> close();
-?>		
-	</table>
+	// }
+?>
+
 </body>
 </html>
