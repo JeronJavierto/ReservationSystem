@@ -21,11 +21,7 @@ ul.menu{
   
 }
 
-li.home_index{
-  float: left;
-  margin-right: -450px;
-  margin-left: 420px;
-}
+
 li.events_index{
   float: left;
   margin-right: -450px;
@@ -35,6 +31,16 @@ li.faci_index{
   float: left;
   margin-right: -450px;
   margin-left: 500px;
+}
+@media screen and (max-width: 500px) {
+  li.home_index{
+  float: left;
+  margin-right: -450px;
+  margin-left: 420px;
+}
+  .header-right {
+    float: none;
+  }
 }
 
 li.home{
