@@ -1,4 +1,6 @@
-div.a{
+ 
+    
+    div.abc{
         background-color: #00008B;
         padding-top: 2px;
         width: 800px;
@@ -14,7 +16,7 @@ div.a{
   	
 	margin: auto;
     }
-    div.b{
+    div.bcd{
        background-color: white;
        width: 643px;
        height: 750px;
@@ -30,10 +32,10 @@ div.a{
   	
 	margin: auto;
     }
-      div.c{
+      div.cde{
           text-align: left;
       }
-    input[type=text], select {
+    input[type=fill], select {
   width: 50%;
   padding: 5px 20px;
   margin: 8px 0;
@@ -42,22 +44,8 @@ div.a{
   border-radius: 4px;
   box-sizing: border-box;
 }
-input[type=reserve] {
-  width: 10%;
-  background-color: Green;
-  color: white;
-  padding: 10px 10px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-}
 
-input[type=reserve]:hover {
-  background-color: Green;
-}
-.button {
+button.butt {
   background-color: #00008B;
   border: none;
   color: white;
@@ -69,12 +57,3 @@ input[type=reserve]:hover {
   cursor: pointer;
 } 
 
-ul.menu{
-  list-style-type: none;
-  margin: 0px;
-  padding: 0;
-  overflow: hidden;
-  background-color:#ffcb0c;
-  border-style: solid;
-  
-}
