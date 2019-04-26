@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../stylesheet/style5.css">     
+</head>
+    <body>
+    <div class="a">Reports</div>
+        <div class="b">
+            <div class="c">Incident Report</div>
+        <br>
+<form action="report_client.php" method="GET">
+    <label for="Org">Date of Occurence</label>
+    <input type="date" name="date" placeholder="....">
+    <br>
+    <label for="Vent">Time of Occurence</label>
+    <input type="time" name="time" placeholder="... ">
+    <br>
+    <h4>Causet of Incident</h4>
+    <label for="Ven">Name</label>
+    <input type="text" id="n" name="name" placeholder=".....">
+    <br>
+    <label for="Dat">ID no.</label>
+    <input type="text" id="no" name="idno" placeholder="...... ">
+    <br>
+    <label for="Tim">Course</label>
+    <input type="text" id="cr" name="course" placeholder=".....">
+    <br>
+    <h4>Description</h4>
+    <textarea rows="4" cols="50" name="description">
+</textarea>
+    <h4>Extent of Damage</h4>
+    <textarea rows="4" cols="50" name="damage">
+</textarea>
+    <h4>Action Taken</h4>
+    <textarea rows="4" cols="50" name="actaken">
+</textarea>
+    <br>
+    <br>
+ 
+    <button class="button">Acknowledge</button>
+        
+</form>
+
+      </div>  
+    </body>
+</html>
