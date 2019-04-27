@@ -15,7 +15,7 @@
 <ul class="menu">
 		<li class="home"><a href="home_client.html" class="home">HOME</a></li>
 		<li class="events"><a href="../../php/event_page.php" class="events">EVENTS</a></li>
-		<li class="faci"><a href="../../php/list_facilities_home.php" class="faci">FACILITIES</a></li>
+		<li class="faci"><a href="../../php/list_facilities_client.php" class="faci">FACILITIES</a></li>
         <li class="repo"><a href="../../php/Report.php" class="repo">REPORT</a></li>
 </ul>
 
