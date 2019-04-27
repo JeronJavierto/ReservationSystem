@@ -26,7 +26,7 @@
 	 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="addfB">Add Facility</button>
 
 	 <div id="id01" class="addfmodal">
-  	 <form class="addfmodal-content animate" action="php/login.php" method="POST">
+  	 <form class="addfmodal-content animate" action="add_facility.php" method="POST">
     <div class="imgcontainer1">
       <span onclick="document.getElementById('id01').style.display='none'" class="close_signin" title="Close Modal">&times;</span>
     </div>
@@ -37,7 +37,7 @@
       <input type="text" placeholder="Enter Level Name" name="level" required>
 
       <label for="lstn">Room Name</label>
-      <input type="text" placeholder="Enter Room Name" name="room">
+      <input type="text" placeholder="Enter Room Name" name="room" required="">
 
       <label for="email">Room Type</label>
       <input type="text" placeholder="Enter Room Type" name="roomType" required>      
