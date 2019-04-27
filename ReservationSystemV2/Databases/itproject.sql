@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 06:40 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Generation Time: Apr 27, 2019 at 08:02 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -130,7 +130,7 @@ CREATE TABLE `facility` (
 --
 
 INSERT INTO `facility` (`FacID`, `Level`, `room`, `roomType`, `description`, `capacity`, `Reservation`) VALUES
-(1, 'First Basement', 'Plaza\r\n', 'others', 'Devesse Plaza', 1000, ''),
+(1, 'Mezzanine', 'Mezzanine', 'OTHERS', 'LIBRARY READING AREA/ TESTING AREA', 300, ''),
 (2, '4th floor', 'D1002', 'OTHERS', 'MINI-AVR/ CONFERENCE ROOM/ MULTIMEDIA', 20, ''),
 (3, '4th floor', 'D1001', 'OTHERS', 'AVR /MULTIMEDIA', 3, ''),
 (4, '4th floor', 'Library', 'OTHERS', 'LIBRARY', 200, ''),
@@ -275,9 +275,7 @@ INSERT INTO `facility` (`FacID`, `Level`, `room`, `roomType`, `description`, `ca
 (143, 'OVAL', 'OVAL AREA', 'COURT', 'Basketball Court', 0, ''),
 (144, 'OVAL', 'OVAL AREA', 'COURT', 'Volleyball/Tennis Court', 0, ''),
 (145, 'OVAL', 'OVAL AREA', 'COURT', 'Fr. Desmedt Oval', 0, ''),
-(146, 'AMPHITHEATRE', 'Amphitheatre', 'Stage Area', 'AMPHITHEATRE', 1000, ''),
-(147, 'Mezzanine', 'Mezzanine', 'OTHERS', 'LIBRARY READING AREA/ TESTING AREA', 300, ''),
-(148, '4th floor', 'D1002', 'OTHERS', 'MINI-AVR/ CONFERENCE ROOM/ MULTIMEDIA', 20, '');
+(146, 'AMPHITHEATRE', 'Amphitheatre', 'Stage Area', 'AMPHITHEATRE', 1000, '');
 
 -- --------------------------------------------------------
 
