@@ -783,3 +783,64 @@ i {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+/*border for add facilities */
+.div1 {
+  width: 100%;
+  height: 30px;
+  border: 1px solid white;
+  background: white;
+}
+
+#lfadmin {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+#lfadmin td, #lfadmin th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#lfadmin tr:nth-child(even){background-color: #f2f2f2;}
+
+#lfadmin tr:hover {background-color: #ddd;}
+
+#lfadmin th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4040a1;
+  color: white;
+}
+
+.addfB{
+  top: 300px;
+  right: 30px;
+}
+
+/* The Modal (background) */
+.addfmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 400px;
+  top: 120px;
+  width: 50%; /* Full width */
+  height: 50%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #778899;
+  padding-top: 2px;
+  border-color: #ffcb0c;
+  border: solid; 
+}
+
+/* Modal Content/Box */
+.addfmodal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 99%; /* Could be more or less, depending on screen size */
+}
