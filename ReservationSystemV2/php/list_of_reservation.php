@@ -11,7 +11,6 @@
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<h1>FACILITY RESERVATION SYSTEM</h1>
-	<h3><a href="edit_profile.php" class="signup">Edit Profile</a></h3><br>
 	<h3><a href="logout.php" class="signup">Log Out</a></h3>
 </head>
 <body>    
