@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style5.css">
-<link rel="stylesheet" href="style.css">   
+<link rel="stylesheet" href="../stylesheet/style5.css">
+<link rel="stylesheet" href="../stylesheet/style.css">   
 	<title>List of Facilities</title>
 	<h1>FACILITY RESERVATION SYSTEM</h1>
 	<h3><a href="edit_profile.php" class="signup">Edit Profile</a></h3><br>
