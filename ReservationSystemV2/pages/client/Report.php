@@ -1,66 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style> 
-    
-    div.a{
-        background-color: #00008B;
-        padding-top: 2px;
-        width: 800px;
-        padding-bottom: 2px;
-        padding-left: 2px;
-        color: floralwhite;
-    }
-    div.b{
-       background-color: white;
-       width: 643px;
-       height: 750px;
-       padding: 40px;  
-       border: 40px solid lightgrey;
-       text-align: center;
-    }
-      div.c{
-          text-align: left;
-      }
-    input[type=text], select {
-  width: 50%;
-  padding: 5px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-input[type=reserve] {
-  width: 10%;
-  background-color: Green;
-  color: white;
-  padding: 10px 10px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-}
-
-input[type=reserve]:hover {
-  background-color: Green;
-}
-.button {
-  background-color: #00008B;
-  border: none;
-  color: white;
-  padding: 12px 32px;
-  text-align: right;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  cursor: pointer;
-} 
-
-</style>      
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../stylesheet/style5.css">
+<h1>FACILITY RESERVATION SYSTEM</h1>
+<h3><a href="edit_profile.html" class="signup">Edit Profile</a></h3><br>
+<h3><a href="../../php/logout.php" class="signup">Log Out</a></h3>
 </head>
     <body>
+<ul class="menu">
+		<li class="home"><a href="home_client.html" class="home">HOME</a></li>
+		<li class="events"><a href="../../php/event_page.php" class="events">EVENTS</a></li>
+		<li class="faci"><a href="../../php/list_facilities.php" class="faci">FACILITIES</a></li>
+        <li class="repo"><a href="../../php/Report.php" class="repo">REPORT</a></li>
+</ul>
     <div class="a">Reports</div>
         <div class="b">
             <div class="c">Incident Report</div>
