@@ -23,6 +23,39 @@
 	  <li class="req"><a href="list_of_requests_admin.php" class="req">REQUEST</a></li>
 	  <li class="rep"><a href="../pages/admin/report.php" class="rep">REPORTS</a></li>
 	</ul>
+<br>
+<br>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="addfB">Add Facility</button>
+
+<div id="id01" class="addfmodal">
+  <form class="addfmodal-content animate" action="php/login.php" method="POST">
+    <div class="imgcontainer1">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close_addf" title="Close Modal">&times;</span>
+    </div>
+      <p align="center">Fill up the form to add a facility.</p>
+      <hr>
+      <label for="frstn">Level Name</label>
+      <input type="text" placeholder="Enter Level Name" name="level" required>
+
+      <label for="lstn">Room Name</label>
+      <input type="text" placeholder="Enter Room Name" name="room">
+
+      <label for="email">Room Type</label>
+      <input type="text" placeholder="Enter Room Type" name="roomType" required>      
+
+      <label for="org">Description</label>
+      <input type="text" placeholder="Enter Description" name="description" required="">
+
+      <label for="posi">Capacity</label>
+      <input type="text" placeholder="Enter Capacity" name="capacity" required="">     
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn_login">Cancel</button> 
+        <button type="submit" class="signupbtn">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 <div style="width:700px; margin:0 auto;">
 <br>
